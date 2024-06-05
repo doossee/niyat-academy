@@ -1,0 +1,5 @@
+venv/
+jstoolchain/
+migrations/
+__pycache__/
+static/
