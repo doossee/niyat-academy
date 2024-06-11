@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<header>
+    <div class="container mx-auto h-[450px] flex">
+        <div class="w-[300px] py-8">
+            <a href="#" class="uppercase underline font-bold text-green-500">Темы курсов</a>
+            <ul class="flex flex-col gap-2 mt-4 text-gray-600">
+                <li><a href="#" class="text-lg hover:text-gray-800">Schools <span class="text-sm">9</span></a></li>
+                <li><a href="#" class="text-lg hover:text-gray-800">Schools <span class="text-sm">267</span></a></li>
+                <li><a href="#" class="text-lg hover:text-gray-800">Schools <span class="text-sm">171</span></a></li>
+                <li><a href="#" class="text-lg hover:text-gray-800">Schools <span class="text-sm">62</span></a></li>
+                <li><a href="#" class="text-lg hover:text-gray-800">Schools <span class="text-sm">53</span></a></li>
+                <li><a href="#" class="text-lg hover:text-gray-800">Schools <span class="text-sm">53</span></a></li>
+                <li><a href="#" class="text-lg hover:text-gray-800">Schools <span class="text-sm">697</span></a></li>
+            </ul>
+        </div>
+        <div class="flex-1 bg-red-500 relative">
+            <div class="relative w-full h-full">
+                <img src="https://cdn.pixabay.com/photo/2017/08/06/22/01/books-2596809_960_720.jpg" alt="" class="w-full h-full object-cover absolute">
+                <div class="pl-8 pt-8 relative z-10 space-y-4 text-white">
+                    <span class="uppercase underline font-bold text-yellow-300">NEW</span>
+                    <h1 class="text-4xl font-bold ">Мастерство линейного программирования</h1> 
+                    <p class="text-lg">Исследуйте мир линейного программирования и его применение в различных областях, таких как математика, информатика и бизнес. Изучайте материал вместе с экспертами и улучшайте свои навыки с помощью реальных примеров и упражнений.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="py-16">
+    <div class="container mx-auto flex gap-4">
+        <div class="flex-1">
+            <ul class="flex items-center gap-4 py-4">
+                <li><a href="#" class="font-bold uppercase px-4 border-b-4 py-2 border-green-500 text-green-500">Рекомендуемые курсы</a></li>
+            </ul>
+            <div class="grid grid-cols-4 gap-2 py-4">
+                {% for course in courses %}
+                <a href="{% url 'course_detail' course.slug %}">
+                    <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                        <div class="w-full h-[180px]">
+                            <img src="{{ course.image.url }}" alt="{{ course.title }}" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <span class="uppercase text-sm font-bold text-green-500">{{ course.category }}</span>
+                            <h2 class="text-xl font-semibold mt-1">{{ course.title }}</h2>
+                            <p class="text-gray-500 text-base">{{ course.teacher }}</p>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+

@@ -1,0 +1,32 @@
+{% load compress %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Niyat Academy{% endblock %}</title>
+    {% compress css %}
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    {% endcompress %}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    
+</head>
+<body class="bg-gray-50">
+    <div class="antialiased bg-gray-50">
+        
+        {% include 'layout/navbar.html' %}
+    
+        <main class="bg-gray-50 p-4 md:ml-64 h-auto pt-4">
+            {% block content %}
+            {% endblock %}
+        </main>
+
+        {% include 'layout/footer.html' %}
+
+
+    </div>
+</body>
+</html>

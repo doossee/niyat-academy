@@ -3,3 +3,4 @@ jstoolchain/
 migrations/
 __pycache__/
 static/
+media/

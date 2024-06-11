@@ -1,3 +1,12 @@
 from django.contrib import admin
+from .models import Course, Module, Content
 
-# Register your models here.
+
+
+@admin.register(Course)
+class SubjectAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("title",)}
+
+
+admin.site.register(Module)
+admin.site.register(Content)
